@@ -1,63 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import { styled } from '@mui/system';
 import background1 from '../../images/itinerary.jpg';
 import background2 from '../../images/itinerary2.jpg';
 import backgrounds from '../../images/tripi2.jpg';
 
-const useStyles = styled({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100vh',
-    backgroundImage: `url(${backgrounds})`,
-    backgroundSize: 'cover',
-    '&:hover': {
-      backgroundImage: `url(${backgrounds})`,
-      filter: 'brightness(100%)',
-    },
-  },
-  button: {
-    width: '1000px',
-    height: '200px',
-    margin: '1rem',
-    borderRadius: '10px',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    color: 'white',
-    fontWeight: 'bold', 
-    fontSize: '32px', 
-    '&:hover': {
-      filter: 'brightness(110%)',
-    },
-  },
-  explore: {
-    backgroundImage: `url(${background1})`,
-  },
-  create: {
+const StyledButton = styled(Button)({
+  backgroundImage: `url(${background1})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  color: '#ffffff',
+  borderRadius: '30px',
+  padding: '50px 24px',
+  fontSize: '1.5rem',
+  margin: '20px',
+  width: '500px',
+  '&:hover': {
     backgroundImage: `url(${background2})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    color: '#ffffff',
   },
 });
 
 const ItineraryPage = () => {
-  const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Link to="/cardpage">
-        <Button className={`${classes.button} ${classes.explore}`} variant="contained" disableElevation>
-          Explore Trips
-        </Button>
-      </Link>
-      <Link to="/create">
-        <Button className={`${classes.button} ${classes.create}`} variant="contained" disableElevation>
-          Create Trip
-        </Button>
-      </Link>
+    <div style={{ backgroundImage: `url(${backgrounds})`, height: '100vh', backgroundSize: 'cover', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+        <Link to="/cardpage">
+          <StyledButton>
+            Explore Trips
+          </StyledButton>
+        </Link>
+        <Link to="/create">
+          <StyledButton>
+            Create Trip
+          </StyledButton>
+        </Link>
+      </div>
     </div>
   );
 };

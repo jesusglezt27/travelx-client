@@ -7,8 +7,9 @@ import { Button } from "@mui/material";
 import {useState} from 'react'
 import {addItinerary} from '../../services/itinerary.service'
 import {useNavigate} from 'react-router-dom'
+import backgrounds from '../../images/tripi2.jpg';
 
-function CreatePage(){
+function CreateForm(){
     const [details,setDetails] = useState({})
     const [flightDetails,setFlightDetails] = useState({})
     const [hotelDetails,setHotelDetails] = useState({})
@@ -30,7 +31,7 @@ function CreatePage(){
     } 
 
     return(
-        <div>
+        <div style={{backgroundImage: `url(${backgrounds})`, backgroundSize: 'cover'}}>
             <Details handleState = {(value, key)=>{
                 setDetails((prevState) => ({...prevState,[key]: value}))
             }}/>
@@ -43,11 +44,12 @@ function CreatePage(){
             <Activities handleState = {(value, key)=>{
                 setActivities((prevState) => ({...prevState,[key]: value}))
             }}/>
-            <Button variant='contained' onClick={onSubmit}>
+            <Button variant='contained' onClick={onSubmit} style={{ margin: '10px' }}>
                 Crear
             </Button>
+
         </div>
     )
 }
 
-export default CreatePage;
+export default CreateForm;

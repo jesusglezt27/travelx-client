@@ -1,0 +1,28 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  p, a, span {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+
+  .details-page
+  .flight-details,
+  .hotel-details,
+  .activities {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
