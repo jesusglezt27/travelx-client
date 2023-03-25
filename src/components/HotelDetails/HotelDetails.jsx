@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Box, Button, Grid, Paper, TextField, Typography } from '@mui/material';
 import { AddPhotoAlternate } from '@mui/icons-material';
 
-const HotelDetails = ({handleState, hotelDetails}) => {
+const HotelDetails = ({handleState, hotelDetails = [] }) => {
 
   const [hotel, setHotel] = useState(hotelDetails.length?hotelDetails[0].hotelName:"")
   const [checkin, setCheckin] = useState(hotelDetails.length?hotelDetails[0].checkIn:"")

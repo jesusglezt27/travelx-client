@@ -1,91 +1,70 @@
-import { Button, Container, Typography, Grid } from "@mui/material";
+import { Button, Container, Typography, Grid, Box } from "@mui/material";
 import { styled } from "@mui/system";
 import { Link } from 'react-router-dom';
-import backgrounds from '../../images/tripi2.jpg';
+import backgroundImage from '../../images/tripi2.jpg';
 import {useContext} from 'react'
 import {AuthContext} from '../../context/auth.context'
 
-
-const useStyles = styled(() => ({
+const styles = {
   root: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "100vh",
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: '100vh',
+    position: 'relative',
   },
-  overlay: {
-    backgroundImage: `url(${backgrounds})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "100%",
-    width: "100%",
-    textAlign: "center",
+  content: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    textAlign: 'center',
   },
-  firstContainer: {
-
+  title: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: '3rem',
+    marginBottom: '2rem',
   },
-  heading: {
-    color: "#fff",
-    fontWeight: 700,
-    fontSize: "3rem",
-    marginBottom: "1rem",
-  },
-  description: {
-    color: "#fff",
-    fontSize: "1.5rem",
-    marginBottom: "2rem",
+  subtitle: {
+    color: '#fff',
+    fontSize: '1.5rem',
+    marginBottom: '3rem',
   },
   button: {
-    backgroundColor: "#fff",
-    color: "#000",
-    fontWeight: 700,
-    fontSize: "1.5rem",
-    padding: "1rem 2rem",
-    "&:hover": {
-      backgroundColor: "#000",
-      color: "#fff",
+    color: '#fff',
+    backgroundColor: '#000',
+    fontWeight: 'bold',
+    fontSize: '1.5rem',
+    padding: '1rem 2rem',
+    '&:hover': {
+      backgroundColor: '#fff',
+      color: '#000',
     },
   },
-}));
+};
+
+
 
 const HomePage = () => {
   const {user} = useContext(AuthContext)
-  const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <div className={classes.overlay}>
-        <Container maxWidth="md" className={classes.firstContainer}>
-          <Typography variant="h1" component="h1" className={classes.heading}>
-            Planifica tus viajes de manera sencilla
-          </Typography>
-          <Typography
-            variant="h4"
-            component="p"
-            className={classes.description}
-          >
-            Bienvenido a nuestra aplicación de planificación de viajes. Con
-            nuestra herramienta, puedes organizar tu itinerario, alojamiento, vuelo y actividades.
-          </Typography>
-          <Link to={user?"/itinerary":"/login"}>
-            <Button
-              variant="contained"
-              className={classes.button}
-              aria-label="Comenzar a planificar viajes"
-            >
-            Comenzar
-            </Button>
-          </Link>
-        </Container>
-      </div>
-    </div>
+<Box sx={styles.root}>
+  <div style={styles.content}>
+    <Typography variant="h1" style={styles.title}>
+      Planifica tus viajes de manera sencilla
+    </Typography>
+    <Typography variant="h3" style={styles.subtitle}>
+      Bienvenido a nuestra aplicación de planificación de viajes. Con nuestra herramienta, puedes organizar tu itinerario, alojamiento, vuelo y actividades.
+    </Typography>
+    <Link to={user ? '/itinerary' : '/login'}>
+      <Button variant="contained" style={styles.button}>
+        Comenzar
+      </Button>
+    </Link>
+  </div>
+</Box>
   );
 };
 

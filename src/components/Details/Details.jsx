@@ -5,10 +5,10 @@ import { uploadImage } from '../../services/upload.services';
 
 const Details = ({handleState, details}) => {
 
-  const [title, setTitle] = useState(details.title || "")
-  const [duration, setDuration] = useState(details.duration || "")
-  const [country, setCountry] = useState(details.country || "")
-  const [city, setCity] = useState(details.city || "")
+  const [title, setTitle] = useState(details? details.title : "")
+  const [duration, setDuration] = useState(details? details.duration : "")
+  const [country, setCountry] = useState(details? details.country : "")
+  const [city, setCity] = useState(details? details.city : "")
   const [image, setImage] = useState(null)
 
   const handleData = (value, key)=>{

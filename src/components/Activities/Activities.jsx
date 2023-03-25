@@ -3,7 +3,7 @@ import { Box, Button, Grid, Paper, TextField, Typography } from '@mui/material';
 import { AddPhotoAlternate } from '@mui/icons-material';
 import { uploadImage } from '../../services/upload.services';
 
-const Activities = ({handleState, activities}) => {
+const Activities = ({handleState, activities = [] }) => {
   const [title, setTitle] = useState(activities.length?activities[0].title:"");
   const [date, setDate] = useState(activities.length?activities[0].date:"");
   const [location, setLocation] = useState(activities.length?activities[0].location:"");

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Box, Button, Grid, Paper, TextField, Typography } from '@mui/material';
 import { AddPhotoAlternate } from '@mui/icons-material';
 
-const FlightDetails = ({handleState, flightDetails}) => {
+const FlightDetails = ({handleState, flightDetails = []}) => {
 
   const [airline, setAirline] = useState(flightDetails.length?flightDetails[0].airline:"")
   const [date, setDate] = useState(flightDetails.length?flightDetails[0].date:"")
