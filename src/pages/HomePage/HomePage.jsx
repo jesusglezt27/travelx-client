@@ -1,12 +1,12 @@
 import { Button, Container, Typography, Grid } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/system";
 import { Link } from 'react-router-dom';
 import backgrounds from '../../images/tripi2.jpg';
 import {useContext} from 'react'
 import {AuthContext} from '../../context/auth.context'
 
 
-const useStyles = makeStyles(() => ({
+const useStyles = styled(() => ({
   root: {
     display: "flex",
     flexDirection: "column",

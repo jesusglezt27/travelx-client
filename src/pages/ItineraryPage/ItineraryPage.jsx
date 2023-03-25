@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import { makeStyles } from '@mui/styles';
+import { styled } from '@mui/system';
 import background1 from '../../images/itinerary.jpg';
 import background2 from '../../images/itinerary2.jpg';
 import backgrounds from '../../images/tripi2.jpg';
 
-const useStyles = makeStyles({
+const useStyles = styled({
   root: {
     display: 'flex',
     flexDirection: 'column',
